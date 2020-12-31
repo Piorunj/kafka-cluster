@@ -1,0 +1,23 @@
+<div class="row">
+  <input [(ngModel)]="customMessage"/>
+
+  <button (click)="sendMessage()">Send message</button>
+</div>
+
+<div class="row">
+  Messages sockJs :
+</div>
+<div class="content">
+  <div *ngFor="let msg of getMessages()">
+    {{msg}}
+  </div>
+</div>
+
+<div class="row">
+  Pictures :
+  <div class="content">
+    <div *ngFor="let picture of getPictures()">
+      <img [src]="sanitize(picture)">
+    </div>
+  </div>
+</div>
