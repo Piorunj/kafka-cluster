@@ -1,18 +1,37 @@
-<div class="row">
-  <input [(ngModel)]="customMessage"/>
 
-  <button (click)="sendMessage()">Send message</button>
-</div>
-
-<div class="row">
-  Messages sockJs :
-</div>
-<div class="content">
-  <div *ngFor="let msg of getMessages()">
-    {{msg}}
+<form class="form" (ngSubmit)="sendMessage()">
+  <div class="container">
+    <div class="chatbox">
+      <div class="top-bar">
+        <div class="avatar"><p>K</p></div>
+        <div class="name">Incoming kafka messages</div>
+      </div>
+      <div class="middle">
+        <div>
+          <div class="incoming">
+            <div class="bubble" *ngFor="let msg of getMessages()">
+              {{msg}}
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="bottom-bar">
+      <div class="chat">
+        <input type="text" [(ngModel)]="customMessage" name="customMessage" placeholder="Type a message..." />
+        <button type="submit">send<i class="fas fa-paper-plane"></i></button>
+      </div>
+      </div>
+    </div>
   </div>
-</div>
+</form>
 
+<input
+  style="display: none"
+  type="file" (change)="onFileChanged($event)"
+  accept="image/*"
+  #fileInput>
+<button class="upload-button" (click)="fileInput.click()">Select File</button>{{selectedFile?.name}}
+<button class="upload-button-round" (click)="onUpload()">Upload!</button>
 <div class="row">
   Pictures :
   <div class="content">

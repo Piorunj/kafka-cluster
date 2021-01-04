@@ -6,11 +6,12 @@ import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   
-  customMessage = "test";
+  customMessage = ""
+  selectedFile: File
   
   constructor(private messageService: MessageService,
     private pictureService: PictureService,
@@ -30,7 +31,15 @@ export class AppComponent {
   }
 
   sendMessage(){
-    this.messageService.addMessage(this.customMessage);
+    this.messageService.addMessage(this.customMessage)
+  }
+
+  onFileChanged(event) {
+    this.selectedFile = event.target.files[0]
+  }
+
+  onUpload() {
+      this.messageService.addImage(this.selectedFile)
   }
 }
 

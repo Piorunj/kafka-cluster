@@ -32,4 +32,11 @@ export class MessageService {
     return this.http.post("http://localhost:8081/message/"+message, null).subscribe();
   }
 
+  addImage(image: File){
+    const uploadData = new FormData();
+    uploadData.append('file', image);
+    return this.http.post('http://localhost:8081/message/picture', uploadData)
+      .subscribe();
+  }
+
 }

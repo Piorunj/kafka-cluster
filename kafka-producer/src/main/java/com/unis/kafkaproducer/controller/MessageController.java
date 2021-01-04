@@ -25,9 +25,9 @@ public class MessageController {
 	}
 
 	@PostMapping("/picture")
-	public String postPicture(@RequestParam("files") MultipartFile files, ModelMap modelMap) {
+	public String postPicture(@RequestParam("file") MultipartFile file, ModelMap modelMap) {
 		System.out.println("file recieved");
-		messageService.addPicture(files);
+		messageService.addPicture(file);
 		return "fileUploadView";
 	}
 

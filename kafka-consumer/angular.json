@@ -124,5 +124,10 @@
       }
     }
   },
-  "defaultProject": "kafka-consumer"
+  "defaultProject": "kafka-consumer",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
