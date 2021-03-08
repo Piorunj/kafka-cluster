@@ -19,6 +19,8 @@ export class AppComponent {
     
     
   getMessages() {
+    var objDiv = document.getElementById("messages");
+    objDiv.scrollTop = objDiv.scrollHeight;
     return this.messageService.msg;
   }
 

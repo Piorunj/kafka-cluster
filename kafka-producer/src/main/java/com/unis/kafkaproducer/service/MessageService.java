@@ -13,4 +13,6 @@ public interface MessageService {
 	void addPicture(MultipartFile file);
 
 	Message getPicture(String message);
+
+	public void spamMessage();
 }

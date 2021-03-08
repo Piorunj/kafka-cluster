@@ -2,6 +2,7 @@ package com.unis.kafkaproducer.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,11 @@ public class MessageController {
 	@PostMapping("/{content}")
 	public void postMessage(@PathVariable String content) {
 		messageService.addMessage(new Message("title", content));
+	}
+
+	@GetMapping("/spam")
+	public void spamMessage() {
+		messageService.spamMessage();
 	}
 
 	@PostMapping("/picture")
